@@ -1,64 +1,59 @@
-<!doctype html>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Basketball Stats</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- My CSS -->
   <link rel="stylesheet" href="./styles.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </head>
 <body>
-  <section class="court" style="margin: 100px">
-  <main>
-    <div class="team-field">
-      <div class="three-points-arc">
-        <div class="free-trows">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <div class="free-trows-circle"></div>
-        </div>
+  <div class="container court-header">
+    <div class="row">
+      <div class="col-sm team-one-desc">
+        <p>Team Name</p>
+        <p>Year: </p>
+        <p>Total Pts: </p>
+        <p>FG%: </p>
+      </div>
+      <div class="col-sm team-two-desc">
+        <p>Team Name</p>
+        <p>Year: </p>
+        <p>Total Pts: </p>
+        <p>FG%: </p>
       </div>
     </div>
-    <div class="team-field">
-      <div class="three-points-arc">
-        <div class="free-trows">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <div class="free-trows-circle"></div>
+  </div>
+  <section class="court">
+    <main>
+      <div class="team-field">
+        <div class="three-points-arc">
+          <div class="free-trows">
+            <p class="team-one-ft">
+              88%
+            </p>
+            <div class="free-trows-circle"></div>
+          </div>
+       </div>
+      </div>
+      <div class="team-field">
+        <div class="three-points-arc">
+          <div class="free-trows">
+            <p class="team-two-ft">
+              88%
+            </p>
+            <div class="free-trows-circle"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
   </section>
-  <section class="moc"></section>
-
-  <!-- <section class="court2 lab">
-  <main>
-    <div class="team-field">
-      <div class="three-points-arc">
-        <div class="free-trows">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <div class="free-trows-circle"></div>
-        </div>
-      </div>
-    </div>
-    <div class="team-field">
-      <div class="three-points-arc">
-        <div class="free-trows">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <div class="free-trows-circle"></div>
-        </div>
-      </div>
-    </div>
-  </main>
-  </section> -->
 </body>
 </html>
