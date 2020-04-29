@@ -6,8 +6,7 @@
 
 div.court-header {
   margin-top: 50px;
-  margin-bottom: 50px;
-
+  display: block;
 }
 
 div.team-one-desc {
@@ -27,17 +26,22 @@ div.team-two-desc {
 }
 
 div.stats-foreground {
-  z-index: 100;
   position: relative;
   background-color: grey; 
 }
 
 .court-header > div.row > div.team-one-desc > p{
-  color: red; 
+  /*color: red; */
 }
 
 .court-header > div.row > div.team-two-desc > p{
-  color: green; 
+  /*color: green; */
+}
+
+div.current-stat {
+  margin-top: 25px;
+  font-size: xx-large;
+  display: block;
 }
 
 .court {
@@ -46,7 +50,7 @@ div.stats-foreground {
   justify-content: center;
   box-align: center;
   align-items: center;
-  z-index: -100;
+  padding-bottom: 50px;
 }
 .court > main {
   display: flex; 
@@ -66,6 +70,7 @@ div.stats-foreground {
   align-items: center;
   box-pack: justify;
   justify-content: space-between;
+  z-index: 30;
 }
 .court > main > div.team-field:hover {
   background-color: red;
@@ -101,6 +106,7 @@ div.stats-foreground {
   display: flex;
   box-align: center;
   align-items: center;
+  z-index: 20;
 }
 .court > main > div.team-field > div.three-points-arc:nth-of-type(1):hover {
   background-color: yellow;
@@ -109,7 +115,7 @@ div.stats-foreground {
   background-color: orange;
 }
 
-.court > main > div.team-field > div.three-points-arc > div.free-trows {
+.court > main > div.team-field > div.three-points-arc > div.free-throws {
   box-sizing: border-box;
   height: 11vw;
   width: 23vw;
@@ -125,7 +131,7 @@ div.stats-foreground {
   justify-content: flex-end;
 }
 
-.court > main > div.team-field > div.three-points-arc > div.free-trows > div.free-trows-circle {
+.court > main > div.team-field > div.three-points-arc > div.free-throws > div.free-throws-circle {
   box-sizing: border-box;
   transform: rotate(45deg);
   margin-right: -5.3vw;
@@ -136,13 +142,14 @@ div.stats-foreground {
   border-style: solid;
   border-color: black;
   position: relative;
+  z-index: 10;
 }
 
-.court > main > div.team-field > div.three-points-arc > div.free-trows > div.free-trows-circle:hover {
+.court > main > div.team-field > div.three-points-arc > div.free-throws > div.free-throws-circle:hover {
   background-color: blue;
 }
 
-.court > main > div.team-field:nth-of-type(2) > div.three-points-arc > div.free-trows > div.free-trows-circle:hover {
+.court > main > div.team-field:nth-of-type(2) > div.three-points-arc > div.free-throws > div.free-throws-circle:hover {
   background-color: purple;
 }
 

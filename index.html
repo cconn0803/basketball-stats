@@ -24,16 +24,22 @@
   <div class="container court-header">
     <div class="row text-center">
       <div class="col-sm team-one-desc">
-        <p class="team-one-name">Team Name</p>
-        <p class="team-one-year">Year: </p>
-        <p class="team-one-points">Total Pts: </p>
-        <p class="team-one-fg">FG%: </p>
+        <p id="team-one-name">Team Name</p>
+        <p id="team-one-year">Year: </p>
+        <p id="team-one-points">Total Pts: </p>
+        <p id="team-one-fg">FG%: </p>
       </div>
       <div class="col-sm team-two-desc">
-        <p class="team-two-name">Team Name</p>
-        <p class="team-two-year">Year: </p>
-        <p class="team-two-points">Total Pts: </p>
-        <p class="team-two-fg">FG%: </p>
+        <p id="team-two-name">Team Name</p>
+        <p id="team-two-year">Year: </p>
+        <p id="team-two-points">Total Pts: </p>
+        <p id="team-two-fg">FG%: </p>
+      </div>
+    </div>
+    <div class="row text-center current-stat">
+      <div class="col-lg">
+        <p id="stat-team-name"></p>
+        <p id="stat-display"></p>
       </div>
     </div>
   </div>
@@ -42,23 +48,23 @@
     </div>
   <div class="court">
     <main>
-      <div class="team-field">
-        <div class="three-points-arc">
-          <div class="free-trows">
+      <div id="team-one-three" class="team-field">
+        <div id="team-one-two" class="three-points-arc">
+          <div class="free-throws">
             <!-- <p class="team-one-ft">
               88%
             </p> -->
-            <div class="free-trows-circle"></div>
+            <div id="team-one-ft" class="free-throws-circle"></div>
           </div>
         </div>
       </div>
-      <div class="team-field">
-        <div class="three-points-arc">
-          <div class="free-trows">
+      <div id="team-two-three" class="team-field">
+        <div id="team-two-two" class="three-points-arc">
+          <div class="free-throws">
             <!-- <p class="team-two-ft">
               88%
             </p> -->
-            <div class="free-trows-circle"></div>
+            <div id="team-two-ft" class="free-throws-circle"></div>
           </div>
         </div>
       </div>
