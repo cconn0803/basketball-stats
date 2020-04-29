@@ -13,47 +13,57 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+  <!-- D3 JS -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- My JS -->
+  <script src="./get_data.js"></script>
+
 </head>
 <body>
   <div class="container court-header">
-    <div class="row">
+    <div class="row text-center">
       <div class="col-sm team-one-desc">
-        <p>Team Name</p>
-        <p>Year: </p>
-        <p>Total Pts: </p>
-        <p>FG%: </p>
+        <p class="team-one-name">Team Name</p>
+        <p class="team-one-year">Year: </p>
+        <p class="team-one-points">Total Pts: </p>
+        <p class="team-one-fg">FG%: </p>
       </div>
       <div class="col-sm team-two-desc">
-        <p>Team Name</p>
-        <p>Year: </p>
-        <p>Total Pts: </p>
-        <p>FG%: </p>
+        <p class="team-two-name">Team Name</p>
+        <p class="team-two-year">Year: </p>
+        <p class="team-two-points">Total Pts: </p>
+        <p class="team-two-fg">FG%: </p>
       </div>
     </div>
   </div>
-  <section class="court">
+  <div class="content-wrapper">
+    <div class="stats-foreground">
+    </div>
+  <div class="court">
     <main>
       <div class="team-field">
         <div class="three-points-arc">
           <div class="free-trows">
-            <p class="team-one-ft">
+            <!-- <p class="team-one-ft">
               88%
-            </p>
+            </p> -->
             <div class="free-trows-circle"></div>
           </div>
-       </div>
+        </div>
       </div>
       <div class="team-field">
         <div class="three-points-arc">
           <div class="free-trows">
-            <p class="team-two-ft">
+            <!-- <p class="team-two-ft">
               88%
-            </p>
+            </p> -->
             <div class="free-trows-circle"></div>
           </div>
         </div>
       </div>
     </main>
-  </section>
+    </div>
+  </div>
 </body>
 </html>
