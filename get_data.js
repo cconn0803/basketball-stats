@@ -14,17 +14,17 @@ d3.csv("test.csv", function(error, data) {
     // stuff for box at top
     $("#team-one-name").text(team1data.Team);
     $("#team-one-year").text("Season: " + team1data.Season);
-    $("#team-one-points").text("Total Points: " + team1data.PTS);
-    $("#team-one-fg").text("FG%: " + team1data.FG);
+    $("#team-one-points").text("Points per Game: " + team1data.PTS);
+    $("#team-one-fg").text("Field Goal%: " + ((+team1data.FG)*100).toFixed(2) + "%");
 
     $("#team-two-name").text(team2data.Team);
     $("#team-two-year").text("Season: " + team2data.Season);
-    $("#team-two-points").text("Total Points: " + team2data.PTS);
-    $("#team-two-fg").text("FG%: " + team2data.FG);
+    $("#team-two-points").text("Points per Game: " + team2data.PTS);
+    $("#team-two-fg").text("Field Goal%: " + ((+team2data.FG)*100).toFixed(2) + "%");
 
     // default text display
-    $("#stat-team-name").text("Hover over an element");
-    $("#stat-display").text("to see a stat");
+    $("#stat-team-name").text(team1data.Team + " vs " + team2data.Team);
+    $("#stat-display").text("hover over a section to see a stat");
 
     // D3 format is to put a '+' in front to change an element into a number
     // to convert to a percentage: ((+element)*100) + "%"
@@ -33,28 +33,31 @@ d3.csv("test.csv", function(error, data) {
   	var twoFlag1 = false;
   	var ftFlag1 = false;
   	var twoFlag2 = false;
-  	var ftFlag2 = false;
-
+  	var ftFlag2 = false;  
 
     // Team 1 hover functions
     $("#team-one-three")
     	.mouseover(function() {
     		if( !twoFlag1 ){
-    			$("#stat-team-name").text(team1data.Team.toUpperCase());
+    			teamOneColors("grey", "white", "white");
+
+    			$("#stat-team-name").text(team1data.Team);
     			$("#stat-display").text("Three-Point: " + ((+team1data.threeP)*100).toFixed(2) + "%");
     		}
    		})
    		.mouseleave(function() {
-   			// Back to default
-   			$("#stat-team-name").text("Hover over an element");
-   			$("#stat-display").text("to see a stat");
+   			//reset everything back to default
+   			backToDefault();
    		});
 
     $("#team-one-two")
     	.mouseover(function() {
     		if( !ftFlag1 ){
     			twoFlag1 = true;
-	    		$("#stat-team-name").text(team1data.Team.toUpperCase());
+
+    			teamOneColors("white", "grey", "white");
+
+	    		$("#stat-team-name").text(team1data.Team);
 	    		$("#stat-display").text("Two-Point: " + ((+team1data.twoP)*100).toFixed(2) + "%");
 	    	}
     	})
@@ -66,7 +69,10 @@ d3.csv("test.csv", function(error, data) {
     	.mouseover(function() {
     		twoFlag1 = true;
     		ftFlag1 = true;
-	    	$("#stat-team-name").text(team1data.Team.toUpperCase());
+
+    		teamOneColors("white", "white", "grey");
+
+	    	$("#stat-team-name").text(team1data.Team);
 	    	$("#stat-display").text("Free-Throw: " + ((+team1data.FT)*100).toFixed(2) + "%");
    		})
    		.mouseleave(function() {
@@ -78,21 +84,25 @@ d3.csv("test.csv", function(error, data) {
     $("#team-two-three")
     	.mouseover(function() {
     		if( !twoFlag2 ){
-	       		$("#stat-team-name").text(team2data.Team.toUpperCase());
+    			teamTwoColors("grey", "white", "white");
+
+	       		$("#stat-team-name").text(team2data.Team);
 	    		$("#stat-display").text("Three-Point: " + ((+team2data.threeP)*100).toFixed(2) + "%");
 	    	}
     	})
-    	.mouseleave(function() {
-   			// Back to default
-   			$("#stat-team-name").text("Hover over an element");
-   			$("#stat-display").text("to see a stat");
+    	.mouseleave(function() { 
+    		//reset everything back to default
+    		backToDefault();
    		});
 
     $("#team-two-two")
     	.mouseover(function() {
     		if( !ftFlag2 ){
     			twoFlag2 = true;
-	    		$("#stat-team-name").text(team2data.Team.toUpperCase());
+
+    			teamTwoColors("white", "grey", "white");
+
+	    		$("#stat-team-name").text(team2data.Team);
 	    		$("#stat-display").text("Two-Point: " + ((+team2data.twoP)*100).toFixed(2) + "%");
 	    	}
     	})
@@ -104,11 +114,45 @@ d3.csv("test.csv", function(error, data) {
     	.mouseover(function() {
     		ftFlag2 = true;
     		twoFlag2 = true;
-	    	$("#stat-team-name").text(team2data.Team.toUpperCase());
+
+    		teamTwoColors("white", "white", "grey");
+
+	    	$("#stat-team-name").text(team2data.Team);
 	    	$("#stat-display").text("Free-Throw: " + ((+team2data.FT)*100).toFixed(2) + "%");
     	})
     	.mouseleave(function() {
    			ftFlag2 = false;
-   		});	
+   		});
+
+
+   	function teamOneColors(three, two, ft){
+  		$("#team-one-three").css("background-color", three);
+    	$("#team-one-two").css("background-color", two);
+    	$("#team-one-ft").css("background-color", ft);
+  	}
+  	function teamTwoColors(three, two, ft){
+  		$("#team-two-three").css("background-color", three);
+    	$("#team-two-two").css("background-color", two);
+    	$("#team-two-ft").css("background-color", ft);
+  	}
+
+  	
+  	function backToDefault(){
+  		twoFlag1 = false;
+  		ftFlag1 = false;
+  		twoFlag2 = false;
+  		ftFlag2 = false;
+
+  		$("#stat-team-name").text(team1data.Team + " vs " + team2data.Team);
+    	$("#stat-display").text("hover over a section to see a stat");
+		
+		$("#team-one-three").css("background-color", "white");
+    	$("#team-one-two").css("background-color", "white");
+    	$("#team-one-ft").css("background-color", "white");
+
+   		$("#team-two-three").css("background-color", "white");
+    	$("#team-two-two").css("background-color", "white");
+    	$("#team-two-ft").css("background-color", "white");
+  	}	
 
 });
