@@ -67,6 +67,10 @@ div.current-stat {
   font-size: 2vw;
 }
 
+#reset-button {
+  margin-top: 1vw;
+}
+
 p.desc-text {
   font-size: 1.5vw;
 }
