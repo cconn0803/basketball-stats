@@ -40,8 +40,8 @@ d3.csv("test.csv", function(error, data) {
     $("#team-one-three")
     	.mouseover(function() {
     		if( !twoFlag1 ){
-    			$("#stat-team-name").text(team1data.Team);
-    			$("#stat-display").text("Three-Point: " + ((+team1data.threeP)*100) + "%");
+    			$("#stat-team-name").text(team1data.Team.toUpperCase());
+    			$("#stat-display").text("Three-Point: " + ((+team1data.threeP)*100).toFixed(2) + "%");
     		}
    		})
    		.mouseleave(function() {
@@ -54,8 +54,8 @@ d3.csv("test.csv", function(error, data) {
     	.mouseover(function() {
     		if( !ftFlag1 ){
     			twoFlag1 = true;
-	    		$("#stat-team-name").text(team1data.Team);
-	    		$("#stat-display").text("Two-Point: " + ((+team1data.twoP)*100) + "%");
+	    		$("#stat-team-name").text(team1data.Team.toUpperCase());
+	    		$("#stat-display").text("Two-Point: " + ((+team1data.twoP)*100).toFixed(2) + "%");
 	    	}
     	})
     	.mouseleave(function() {
@@ -64,22 +64,22 @@ d3.csv("test.csv", function(error, data) {
 
     $("#team-one-ft")
     	.mouseover(function() {
+    		twoFlag1 = true;
     		ftFlag1 = true;
-	    	$("#stat-team-name").text(team1data.Team);
-	    	$("#stat-display").text("Free-Throw: " + ((+team1data.FT)*100) + "%");
+	    	$("#stat-team-name").text(team1data.Team.toUpperCase());
+	    	$("#stat-display").text("Free-Throw: " + ((+team1data.FT)*100).toFixed(2) + "%");
    		})
    		.mouseleave(function() {
    			ftFlag1 = false;
    		});
 
 
-
     // Team 2 hover functions
     $("#team-two-three")
     	.mouseover(function() {
     		if( !twoFlag2 ){
-	       		$("#stat-team-name").text(team2data.Team);
-	    		$("#stat-display").text("Three-Point: " + ((+team2data.threeP)*100) + "%");
+	       		$("#stat-team-name").text(team2data.Team.toUpperCase());
+	    		$("#stat-display").text("Three-Point: " + ((+team2data.threeP)*100).toFixed(2) + "%");
 	    	}
     	})
     	.mouseleave(function() {
@@ -92,8 +92,8 @@ d3.csv("test.csv", function(error, data) {
     	.mouseover(function() {
     		if( !ftFlag2 ){
     			twoFlag2 = true;
-	    		$("#stat-team-name").text(team2data.Team);
-	    		$("#stat-display").text("Two-Point: " + ((+team2data.twoP)*100) + "%");
+	    		$("#stat-team-name").text(team2data.Team.toUpperCase());
+	    		$("#stat-display").text("Two-Point: " + ((+team2data.twoP)*100).toFixed(2) + "%");
 	    	}
     	})
     	.mouseleave(function() {
@@ -103,8 +103,9 @@ d3.csv("test.csv", function(error, data) {
     $("#team-two-ft")
     	.mouseover(function() {
     		ftFlag2 = true;
-	    	$("#stat-team-name").text(team2data.Team);
-	    	$("#stat-display").text("Free-Throw: " + ((+team2data.FT)*100) + "%");
+    		twoFlag2 = true;
+	    	$("#stat-team-name").text(team2data.Team.toUpperCase());
+	    	$("#stat-display").text("Free-Throw: " + ((+team2data.FT)*100).toFixed(2) + "%");
     	})
     	.mouseleave(function() {
    			ftFlag2 = false;

@@ -44,6 +44,10 @@ div.current-stat {
   display: block;
 }
 
+div.current-stat > div.col-lg> p.stat-display {
+  font-size: 25px;
+}
+
 .court {
   display: flex;
   box-pack: center;
