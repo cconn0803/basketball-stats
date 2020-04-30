@@ -21,55 +21,85 @@
 
 </head>
 <body>
+
   <div class="container court-header">
-    <div class="row text-center">
-      <div class="col-sm team-one-desc">
-        <p id="team-one-name">Team Name</p>
-        <p id="team-one-year">Year: </p>
-        <p id="team-one-points">Total Pts: </p>
-        <p id="team-one-fg">FG%: </p>
-      </div>
-      <div class="col-sm team-two-desc">
-        <p id="team-two-name">Team Name</p>
-        <p id="team-two-year">Year: </p>
-        <p id="team-two-points">Total Pts: </p>
-        <p id="team-two-fg">FG%: </p>
-      </div>
-    </div>
     <div class="row text-center current-stat">
-      <div class="row">
-        <div class="col">
-          <!-- <p>test</p> -->
+      <p id="stat-team-name"></p>
+      <p id="stat-display"></p>
+    </div>
+  </div>
+
+  <div class="court-wrapper">
+    <div class="row">
+      <div class="col-3 left-court">
+        <p id="team-one-name">Team Name</p>
+        <hr>
+        <p id="team-one-year" class="desc-text">Year: </p>  
+        <p id="team-one-points" class="desc-text">Total Pts: </p>
+        <p id="team-one-fg" class="desc-text">FG%: </p>
+      </div>
+      <div class="col-6">
+        <div class="court">
+          <main>
+            <div id="team-one-three" class="team-field">
+              <div id="team-one-two" class="three-points-arc">
+                <div class="free-throws">
+                  <div id="team-one-ft" class="free-throws-circle"></div>
+                </div>
+              </div>
+            </div>
+            <div id="team-two-three" class="team-field">
+              <div id="team-two-two" class="three-points-arc">
+                <div class="free-throws">
+                  <div id="team-two-ft" class="free-throws-circle"></div>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
-        <div class="col-9">
-          <p id="stat-team-name"></p>
-          <p id="stat-display" class="stat-display"></p>
+      </div>
+      <div class="col-3 right-court">
+        <p id="team-two-name">Team Name</p>
+        <hr>
+        <p id="team-two-year" class="desc-text">Year: </p>
+        <p id="team-two-points" class="desc-text">Total Pts: </p>
+        <p id="team-two-fg" class="desc-text">FG%: </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="menu-holder">Team 1</div>
+        <div class="dropdown menu-holder">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select a Year
+          </a>
+
+          <div id="t1-menu-year" class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+            <!-- <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
         </div>
-        <div class="col">
-          <!-- <p>test</p> -->
+      </div>
+      <div class="col-6">
+        <div class="menu-holder">Team 2</div>
+        <div class="dropdown menu-holder">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select a Year
+          </a>
+
+          <div id="t2-menu-year" class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+            <!-- <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="content-wrapper">
-    <div class="court">
-      <main>
-        <div id="team-one-three" class="team-field">
-          <div id="team-one-two" class="three-points-arc">
-            <div class="free-throws">
-              <div id="team-one-ft" class="free-throws-circle"></div>
-            </div>
-          </div>
-        </div>
-        <div id="team-two-three" class="team-field">
-          <div id="team-two-two" class="three-points-arc">
-            <div class="free-throws">
-              <div id="team-two-ft" class="free-throws-circle"></div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
+
 </body>
 </html>

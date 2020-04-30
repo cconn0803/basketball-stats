@@ -11,20 +11,23 @@ d3.csv("test.csv", function(error, data) {
     var team1data = data[0];
     var team2data = data[1];
 
+    var defaultHeader = team1data.Team + " | " + team2data.Team;
+    var defaultHover = "Hover over a section to see a stat.";
+
     // stuff for box at top
     $("#team-one-name").text(team1data.Team);
     $("#team-one-year").text("Season: " + team1data.Season);
     $("#team-one-points").text("Points per Game: " + team1data.PTS);
-    $("#team-one-fg").text("Field Goal%: " + ((+team1data.FG)*100).toFixed(2) + "%");
+    $("#team-one-fg").text("Field Goal: " + ((+team1data.FG)*100).toFixed(2) + "%");
 
     $("#team-two-name").text(team2data.Team);
     $("#team-two-year").text("Season: " + team2data.Season);
     $("#team-two-points").text("Points per Game: " + team2data.PTS);
-    $("#team-two-fg").text("Field Goal%: " + ((+team2data.FG)*100).toFixed(2) + "%");
+    $("#team-two-fg").text("Field Goal: " + ((+team2data.FG)*100).toFixed(2) + "%");
 
     // default text display
-    $("#stat-team-name").text(team1data.Team + " vs " + team2data.Team);
-    $("#stat-display").text("hover over a section to see a stat");
+    $("#stat-team-name").text(defaultHeader);
+    $("#stat-display").text(defaultHover);
 
     // D3 format is to put a '+' in front to change an element into a number
     // to convert to a percentage: ((+element)*100) + "%"
@@ -143,8 +146,8 @@ d3.csv("test.csv", function(error, data) {
   		twoFlag2 = false;
   		ftFlag2 = false;
 
-  		$("#stat-team-name").text(team1data.Team + " vs " + team2data.Team);
-    	$("#stat-display").text("hover over a section to see a stat");
+  		$("#stat-team-name").text(defaultHeader);
+    	$("#stat-display").text(defaultHover);
 		
 		$("#team-one-three").css("background-color", "white");
     	$("#team-one-two").css("background-color", "white");
