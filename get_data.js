@@ -89,13 +89,16 @@ function displayData(data1, data2) {
 	var twoFlag1 = false;
 	var ftFlag1 = false;
 	var twoFlag2 = false;
-	var ftFlag2 = false;  
+	var ftFlag2 = false;
+
+	var color1 = teamColor(team1data.Team);
+	var color2 = teamColor(team2data.Team);  
 
 	// Team 1 hover functions
 	$("#team-one-three")
 		.mouseover(function() {
 			if( !twoFlag1 ){
-				teamOneColors("grey", "white", "white");
+				teamOneColors(color1, "white", "white");
 
 	    		$("#stat-team-name").text(team1data.Team);
 	    		$("#stat-display").text("Three-Point: " + ((+team1data.threeP)*100).toFixed(2) + "%");
@@ -111,7 +114,7 @@ function displayData(data1, data2) {
 	    	if( !ftFlag1 ){
 	    		twoFlag1 = true;
 
-	    		teamOneColors("white", "grey", "white");
+	    		teamOneColors("white", color1, "white");
 
 		    	$("#stat-team-name").text(team1data.Team);
 		    	$("#stat-display").text("Two-Point: " + ((+team1data.twoP)*100).toFixed(2) + "%");
@@ -126,7 +129,7 @@ function displayData(data1, data2) {
 	    	twoFlag1 = true;
 	    	ftFlag1 = true;
 
-	    	teamOneColors("white", "white", "grey");
+	    	teamOneColors("white", "white", color1);
 
 		    $("#stat-team-name").text(team1data.Team);
 		    $("#stat-display").text("Free-Throw: " + ((+team1data.FT)*100).toFixed(2) + "%");
@@ -140,7 +143,7 @@ function displayData(data1, data2) {
 	$("#team-two-three")
 	    .mouseover(function() {
 	    	if( !twoFlag2 ){
-	    		teamTwoColors("grey", "white", "white");
+	    		teamTwoColors(color2, "white", "white");
 
 		       	$("#stat-team-name").text(team2data.Team);
 		    	$("#stat-display").text("Three-Point: " + ((+team2data.threeP)*100).toFixed(2) + "%");
@@ -156,7 +159,7 @@ function displayData(data1, data2) {
 	    	if( !ftFlag2 ){
 	    		twoFlag2 = true;
 
-	    		teamTwoColors("white", "grey", "white");
+	    		teamTwoColors("white", color2, "white");
 
 		    	$("#stat-team-name").text(team2data.Team);
 		    	$("#stat-display").text("Two-Point: " + ((+team2data.twoP)*100).toFixed(2) + "%");
@@ -171,7 +174,7 @@ function displayData(data1, data2) {
 	    	ftFlag2 = true;
 	    	twoFlag2 = true;
 
-	    	teamTwoColors("white", "white", "grey");
+	    	teamTwoColors("white", "white", color2);
 
 		    $("#stat-team-name").text(team2data.Team);
 		    $("#stat-display").text("Free-Throw: " + ((+team2data.FT)*100).toFixed(2) + "%");
@@ -287,4 +290,117 @@ function loadDropdownT2(year){
 
 	});
 
+}
+
+function teamColor(teamName) {
+	switch(teamName) {
+		case "Milwaukee Bucks":
+			return "#054216";
+			break;
+		case "Golden State Warriors":
+			return "#1961B1";
+			break;
+		case "New Orleans Pelicans":
+			return "#B09357";
+			break;
+		case "Philadelphia 76ers":
+			return "#0064AD";
+			break;
+		case "Los Angeles Clippers":
+			return "#E5164B";
+			break;
+		case "Portland Trail Blazers":
+			return "#F1302D";
+			break;
+		case "Oklahoma City Thunder":
+			return "#E95131";
+			break;
+		case "Toronto Raptors":
+			return "#BA062F";
+			break;
+		case "Sacramento Kings":
+			return "#4E2C7B";
+			break;
+		case "Washington Wizards":
+			return "#192D58";
+			break;
+		case "Houston Rockets":
+			return "#BE2030";
+			break;
+		case "Atlanta Hawks":
+			return "#CA1F2C";
+			break;
+		case "Minnesota Timberwolves":
+			return "#04A350";
+			break;
+		case "Boston Celtics":
+			return "#016E3F";
+			break;
+		case "Brooklyn Nets":
+			return "#A6AEAE";
+			break;
+		case "Los Angeles Lakers":
+			return "#F6B428";
+			break;
+		case "Utah Jazz":
+			return "#0B223D";
+			break;
+		case "San Antonio Spurs":
+			return "#808487";
+			break;
+		case "Charlotte Hornets":
+			return "#368295";
+			break;
+		case "Denver Nuggets":
+			return "#1C1D31";
+			break;
+		case "Dallas Mavericks":
+			return "#0079BF";
+			break;
+		case "Indiana Pacers":
+			return "#F7C530";
+			break;
+		case "Phoenix Suns":
+			return "#DE5D1F";
+			break;
+		case "Orlando Magic":
+			return "#2D7CDC";
+			break;
+		case "Detroit Pistons":
+			return "#F60839";
+			break;
+		case "Miami Heat":
+			return "#93012D";
+			break;
+		case "Chicago Bulls":	
+			return "#BE2030";
+			break;
+		case "New York Knicks":
+			return "#F76C0D";
+			break;
+		case "Cleveland Cavaliers":
+			return "#831437";
+			break;
+		case "Memphis Grizzlies":
+			return "#5A72A4";
+			break;
+		case "League Average":
+			return "#00539E";
+			break;
+		case "Charlotte Bobcats":
+			return "#EB6230";
+			break;
+		case "New Orleans Hornets":
+			return "#008BBF";
+			break;
+		case "New Jersey Nets":
+			return "#00265A";
+			break;
+		case "Seattle SuperSonics":
+			return "#005530";
+			break;
+		case "Vancouver Grizzlies":
+			return "#00ADA4";
+			break;
+	}
 }
