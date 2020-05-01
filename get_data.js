@@ -247,7 +247,7 @@ function loadDropdownT1(year){
 	    }
 
 	    // set text of team dropdown to selection
-	    $('.team-drop a').click(function(){
+	    $('.team-drop-1 a').click(function(){
     		$('#select1').text($(this).text());
   		});
 
@@ -284,7 +284,7 @@ function loadDropdownT2(year){
 	    }
 	    
 	    // set text of team dropdown to selection
-	    $('.team-drop a').click(function(){
+	    $('.team-drop-2 a').click(function(){
     		$('#select2').text($(this).text());
   		});
 
