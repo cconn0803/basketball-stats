@@ -80,6 +80,10 @@ div.court-wrapper {
   transform-origin: top center;*/
 }
 
+div.menu-stuff {
+  /*margin-bottom: 1000px;*/
+}
+
 .court {
   display: flex;
   box-pack: center;
