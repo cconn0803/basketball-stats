@@ -186,6 +186,8 @@ function loadDropdownT1(year){
     	myNode.removeChild(myNode.lastChild);
 	}
 
+	$('#select1').text("Select a Team");
+
 	// load new menu with correct teams
 	d3.csv("NBA_data.csv", function(error, data) {
 		
@@ -202,13 +204,49 @@ function loadDropdownT1(year){
 	    	}
 	    }
 
+	    // set text of team dropdown to selection
+	    $('.team-drop a').click(function(){
+    		$('#select1').text($(this).text());
+  		});
+
 	});
 
 }
 
 function loadDropdownT2(year){
 	
+	// set year menu text
+	document.getElementById("dropdownMenuLink3").textContent = year;
 
+	// clear team menu
+	const myNode =  document.getElementById("t2-menu-team");
+ 		while (myNode.firstChild) {
+    	myNode.removeChild(myNode.lastChild);
+	}
+	$('#select2').text("Select a Team");
+
+	// load new menu with correct teams
+	d3.csv("NBA_data.csv", function(error, data) {
+		
+		if (error) {
+	    	console.log(error);
+	    	throw error;
+	    }
+
+	    for (var i=0; i<data.length; i++){
+	    	if(data[i].Season == year) {
+	    		console.log("season = year");
+	    		var t2MenuTeam = $("#t2-menu-team");
+	    		teamAdder(t2MenuTeam, data[i].Team, false);
+	    	}
+	    }
+	    
+	    // set text of team dropdown to selection
+	    $('.team-drop a').click(function(){
+    		$('#select2').text($(this).text());
+  		});
+
+	});
 
 }
 
@@ -327,76 +365,76 @@ function teamAdder(domElement, teamName, teamOne){
 	}
 }
 
-var t1_bucks = "<a id=\"t1-bucks\" class=\"dropdown-item\" href=\"#\">Milwaukee Bucks</a>";
-var t1_war = "<a id=\"t1-war\" class=\"dropdown-item\" href=\"#\">Golden State Warriors</a>";
-var t1_pel = "<a id=\"t1-pel\" class=\"dropdown-item\" href=\"#\">New Orleans Pelicans</a>";
-var t1_76 = "<a id=\"t1-76\" class=\"dropdown-item\" href=\"#\">Philadelphia 76ers</a>";
-var t1_clip = "<a id=\"t1-clip\" class=\"dropdown-item\" href=\"#\">Los Angeles Clippers</a>";
-var t1_blaz = "<a id=\"t1-blaz\" class=\"dropdown-item\" href=\"#\">Portland Trail Blazers</a>";
-var t1_thun = "<a id=\"t1-thun\" class=\"dropdown-item\" href=\"#\">Oklahoma City Thunder</a>";
-var t1_rap = "<a id=\"t1-rap\" class=\"dropdown-item\" href=\"#\">Toronto Raptors</a>";
-var t1_kings = "<a id=\"t1-kings\" class=\"dropdown-item\" href=\"#\">Sacramento Kings</a>";
-var t1_wiz = "<a id=\"t1-wiz\" class=\"dropdown-item\" href=\"#\">Washington Wizards</a>";
-var t1_rock = "<a id=\"t1-rock\" class=\"dropdown-item\" href=\"#\">Houston Rockets</a>";
-var t1_hawks = "<a id=\"t1-hawks\" class=\"dropdown-item\" href=\"#\">Atlanta Hawks</a>";
-var t1_tim = "<a id=\"t1-tim\" class=\"dropdown-item\" href=\"#\">Minnesota Timberwolves</a>";
-var t1_celt = "<a id=\"t1-celt\" class=\"dropdown-item\" href=\"#\">Boston Celtics</a>";
-var t1_bnets = "<a id=\"t1-bnets\" class=\"dropdown-item\" href=\"#\">Brooklyn Nets</a>";
-var t1_lake = "<a id=\"t1-lake\" class=\"dropdown-item\" href=\"#\">Los Angeles Lakers</a>";
-var t1_jazz = "<a id=\"t1-jazz\" class=\"dropdown-item\" href=\"#\">Utah Jazz</a>";
-var t1_spurs = "<a id=\"t1-spurs\" class=\"dropdown-item\" href=\"#\">San Antonio Spurs</a>";
-var t1_chhorn = "<a id=\"t1-chhorn\" class=\"dropdown-item\" href=\"#\">Charlotte Hornets</a>";
-var t1_nugg = "<a id=\"t1-nugg\" class=\"dropdown-item\" href=\"#\">Denver Nuggets</a>";
-var t1_mavs = "<a id=\"t1-mavs\" class=\"dropdown-item\" href=\"#\">Dallas Mavericks</a>";
-var t1_pacer = "<a id=\"t1-pacer\" class=\"dropdown-item\" href=\"#\">Indiana Pacers</a>";
-var t1_suns = "<a id=\"t1-suns\" class=\"dropdown-item\" href=\"#\">Phoenix Suns</a>";
-var t1_magic = "<a id=\"t1-magic\" class=\"dropdown-item\" href=\"#\">Orlando Magic</a>";
-var t1_pist = "<a id=\"t1-pist\" class=\"dropdown-item\" href=\"#\">Detroit Pistons</a>";
-var t1_heat = "<a id=\"t1-heat\" class=\"dropdown-item\" href=\"#\">Miami Heat</a>";
-var t1_bulls = "<a id=\"t1-bulls\" class=\"dropdown-item\" href=\"#\">Chicago Bulls</a>";
-var t1_knicks = "<a id=\"t1-knicks\" class=\"dropdown-item\" href=\"#\">New York Knicks</a>";
-var t1_cavs = "<a id=\"t1-cavs\" class=\"dropdown-item\" href=\"#\">Cleveland Cavaliers</a>";
-var t1_grizz = "<a id=\"t1-grizz\" class=\"dropdown-item\" href=\"#\">Memphis Grizzlies</a>";
-var t1_avg = "<a id=\"t1-avg\" class=\"dropdown-item\" href=\"#\">League Average</a>";
-var t1_bob = "<a id=\"t1-bob\" class=\"dropdown-item\" href=\"#\">Charlotte Bobcats</a>";
-var t1_nohorn = "<a id=\"t1-nohorn\" class=\"dropdown-item\" href=\"#\">New Orleans Hornets</a>";
-var t1_njnets = "<a id=\"t1-njnets\" class=\"dropdown-item\" href=\"#\">New Jersey Nets</a>";
-var t1_sonic = "<a id=\"t1-sonic\" class=\"dropdown-item\" href=\"#\">Seattle SuperSonics</a>";
-var t1_van = "<a id=\"t1-van\" class=\"dropdown-item\" href=\"#\">Vancouver Grizzlies</a>";
+var t1_bucks = "<a id=\"t1-bucks\" class=\"dropdown-item drop-switch\" href=\"#\">Milwaukee Bucks</a>";
+var t1_war = "<a id=\"t1-war\" class=\"dropdown-item drop-switch\" href=\"#\">Golden State Warriors</a>";
+var t1_pel = "<a id=\"t1-pel\" class=\"dropdown-item drop-switch\" href=\"#\">New Orleans Pelicans</a>";
+var t1_76 = "<a id=\"t1-76\" class=\"dropdown-item drop-switch\" href=\"#\">Philadelphia 76ers</a>";
+var t1_clip = "<a id=\"t1-clip\" class=\"dropdown-item drop-switch\" href=\"#\">Los Angeles Clippers</a>";
+var t1_blaz = "<a id=\"t1-blaz\" class=\"dropdown-item drop-switch\" href=\"#\">Portland Trail Blazers</a>";
+var t1_thun = "<a id=\"t1-thun\" class=\"dropdown-item drop-switch\" href=\"#\">Oklahoma City Thunder</a>";
+var t1_rap = "<a id=\"t1-rap\" class=\"dropdown-item drop-switch\" href=\"#\">Toronto Raptors</a>";
+var t1_kings = "<a id=\"t1-kings\" class=\"dropdown-item drop-switch\" href=\"#\">Sacramento Kings</a>";
+var t1_wiz = "<a id=\"t1-wiz\" class=\"dropdown-item drop-switch\" href=\"#\">Washington Wizards</a>";
+var t1_rock = "<a id=\"t1-rock\" class=\"dropdown-item drop-switch\" href=\"#\">Houston Rockets</a>";
+var t1_hawks = "<a id=\"t1-hawks\" class=\"dropdown-item drop-switch\" href=\"#\">Atlanta Hawks</a>";
+var t1_tim = "<a id=\"t1-tim\" class=\"dropdown-item drop-switch\" href=\"#\">Minnesota Timberwolves</a>";
+var t1_celt = "<a id=\"t1-celt\" class=\"dropdown-item drop-switch\" href=\"#\">Boston Celtics</a>";
+var t1_bnets = "<a id=\"t1-bnets\" class=\"dropdown-item drop-switch\" href=\"#\">Brooklyn Nets</a>";
+var t1_lake = "<a id=\"t1-lake\" class=\"dropdown-item drop-switch\" href=\"#\">Los Angeles Lakers</a>";
+var t1_jazz = "<a id=\"t1-jazz\" class=\"dropdown-item drop-switch\" href=\"#\">Utah Jazz</a>";
+var t1_spurs = "<a id=\"t1-spurs\" class=\"dropdown-item drop-switch\" href=\"#\">San Antonio Spurs</a>";
+var t1_chhorn = "<a id=\"t1-chhorn\" class=\"dropdown-item drop-switch\" href=\"#\">Charlotte Hornets</a>";
+var t1_nugg = "<a id=\"t1-nugg\" class=\"dropdown-item drop-switch\" href=\"#\">Denver Nuggets</a>";
+var t1_mavs = "<a id=\"t1-mavs\" class=\"dropdown-item drop-switch\" href=\"#\">Dallas Mavericks</a>";
+var t1_pacer = "<a id=\"t1-pacer\" class=\"dropdown-item drop-switch\" href=\"#\">Indiana Pacers</a>";
+var t1_suns = "<a id=\"t1-suns\" class=\"dropdown-item drop-switch\" href=\"#\">Phoenix Suns</a>";
+var t1_magic = "<a id=\"t1-magic\" class=\"dropdown-item drop-switch\" href=\"#\">Orlando Magic</a>";
+var t1_pist = "<a id=\"t1-pist\" class=\"dropdown-item drop-switch\" href=\"#\">Detroit Pistons</a>";
+var t1_heat = "<a id=\"t1-heat\" class=\"dropdown-item drop-switch\" href=\"#\">Miami Heat</a>";
+var t1_bulls = "<a id=\"t1-bulls\" class=\"dropdown-item drop-switch\" href=\"#\">Chicago Bulls</a>";
+var t1_knicks = "<a id=\"t1-knicks\" class=\"dropdown-item drop-switch\" href=\"#\">New York Knicks</a>";
+var t1_cavs = "<a id=\"t1-cavs\" class=\"dropdown-item drop-switch\" href=\"#\">Cleveland Cavaliers</a>";
+var t1_grizz = "<a id=\"t1-grizz\" class=\"dropdown-item drop-switch\" href=\"#\">Memphis Grizzlies</a>";
+var t1_avg = "<a id=\"t1-avg\" class=\"dropdown-item drop-switch\" href=\"#\">League Average</a>";
+var t1_bob = "<a id=\"t1-bob\" class=\"dropdown-item drop-switch\" href=\"#\">Charlotte Bobcats</a>";
+var t1_nohorn = "<a id=\"t1-nohorn\" class=\"dropdown-item drop-switch\" href=\"#\">New Orleans Hornets</a>";
+var t1_njnets = "<a id=\"t1-njnets\" class=\"dropdown-item drop-switch\" href=\"#\">New Jersey Nets</a>";
+var t1_sonic = "<a id=\"t1-sonic\" class=\"dropdown-item drop-switch\" href=\"#\">Seattle SuperSonics</a>";
+var t1_van = "<a id=\"t1-van\" class=\"dropdown-item drop-switch\" href=\"#\">Vancouver Grizzlies</a>";
 
-var t2_bucks = "<a id=\"t2-bucks\" class=\"dropdown-item\" href=\"#\">Milwaukee Bucks</a>";
-var t2_war = "<a id=\"t2-war\" class=\"dropdown-item\" href=\"#\">Golden State Warriors</a>";
-var t2_pel = "<a id=\"t2-pel\" class=\"dropdown-item\" href=\"#\">New Orleans Pelicans</a>";
-var t2_76 = "<a id=\"t2-76\" class=\"dropdown-item\" href=\"#\">Philadelphia 76ers</a>";
-var t2_clip = "<a id=\"t2-clip\" class=\"dropdown-item\" href=\"#\">Los Angeles Clippers</a>";
-var t2_blaz = "<a id=\"t2-blaz\" class=\"dropdown-item\" href=\"#\">Portland Trail Blazers</a>";
-var t2_thun = "<a id=\"t2-thun\" class=\"dropdown-item\" href=\"#\">Oklahoma City Thunder</a>";
-var t2_rap = "<a id=\"t2-rap\" class=\"dropdown-item\" href=\"#\">Toronto Raptors</a>";
-var t2_kings = "<a id=\"t2-kings\" class=\"dropdown-item\" href=\"#\">Sacramento Kings</a>";
-var t2_wiz = "<a id=\"t2-wiz\" class=\"dropdown-item\" href=\"#\">Washington Wizards</a>";
-var t2_rock = "<a id=\"t2-rock\" class=\"dropdown-item\" href=\"#\">Houston Rockets</a>";
-var t2_hawks = "<a id=\"t2-hawks\" class=\"dropdown-item\" href=\"#\">Atlanta Hawks</a>";
-var t2_tim = "<a id=\"t2-tim\" class=\"dropdown-item\" href=\"#\">Minnesota Timberwolves</a>";
-var t2_celt = "<a id=\"t2-celt\" class=\"dropdown-item\" href=\"#\">Boston Celtics</a>";
-var t2_bnets = "<a id=\"t2-bnets\" class=\"dropdown-item\" href=\"#\">Brooklyn Nets</a>";
-var t2_lake = "<a id=\"t2-lake\" class=\"dropdown-item\" href=\"#\">Los Angeles Lakers</a>";
-var t2_jazz = "<a id=\"t2-jazz\" class=\"dropdown-item\" href=\"#\">Utah Jazz</a>";
-var t2_spurs = "<a id=\"t2-spurs\" class=\"dropdown-item\" href=\"#\">San Antonio Spurs</a>";
-var t2_chhorn = "<a id=\"t2-chhorn\" class=\"dropdown-item\" href=\"#\">Charlotte Hornets</a>";
-var t2_nugg = "<a id=\"t2-nugg\" class=\"dropdown-item\" href=\"#\">Denver Nuggets</a>";
-var t2_mavs = "<a id=\"t2-mavs\" class=\"dropdown-item\" href=\"#\">Dallas Mavericks</a>";
-var t2_pacer = "<a id=\"t2-pacer\" class=\"dropdown-item\" href=\"#\">Indiana Pacers</a>";
-var t2_suns = "<a id=\"t2-suns\" class=\"dropdown-item\" href=\"#\">Phoenix Suns</a>";
-var t2_magic = "<a id=\"t2-magic\" class=\"dropdown-item\" href=\"#\">Orlando Magic</a>";
-var t2_pist = "<a id=\"t2-pist\" class=\"dropdown-item\" href=\"#\">Detroit Pistons</a>";
-var t2_heat = "<a id=\"t2-heat\" class=\"dropdown-item\" href=\"#\">Miami Heat</a>";
-var t2_bulls = "<a id=\"t2-bulls\" class=\"dropdown-item\" href=\"#\">Chicago Bulls</a>";
-var t2_knicks = "<a id=\"t2-knicks\" class=\"dropdown-item\" href=\"#\">New York Knicks</a>";
-var t2_cavs = "<a id=\"t2-cavs\" class=\"dropdown-item\" href=\"#\">Cleveland Cavaliers</a>";
-var t2_grizz = "<a id=\"t2-grizz\" class=\"dropdown-item\" href=\"#\">Memphis Grizzlies</a>";
-var t2_avg = "<a id=\"t2-avg\" class=\"dropdown-item\" href=\"#\">League Average</a>";
-var t2_bob = "<a id=\"t2-bob\" class=\"dropdown-item\" href=\"#\">Charlotte Bobcats</a>";
-var t2_nohorn = "<a id=\"t2-nohorn\" class=\"dropdown-item\" href=\"#\">New Orleans Hornets</a>";
-var t2_njnets = "<a id=\"t2-njnets\" class=\"dropdown-item\" href=\"#\">New Jersey Nets</a>";
-var t2_sonic = "<a id=\"t2-sonic\" class=\"dropdown-item\" href=\"#\">Seattle SuperSonics</a>";
-var t2_van = "<a id=\"t2-van\" class=\"dropdown-item\" href=\"#\">Vancouver Grizzlies</a>";
+var t2_bucks = "<a id=\"t2-bucks\" class=\"dropdown-item drop-switch\" href=\"#\">Milwaukee Bucks</a>";
+var t2_war = "<a id=\"t2-war\" class=\"dropdown-item drop-switch\" href=\"#\">Golden State Warriors</a>";
+var t2_pel = "<a id=\"t2-pel\" class=\"dropdown-item drop-switch\" href=\"#\">New Orleans Pelicans</a>";
+var t2_76 = "<a id=\"t2-76\" class=\"dropdown-item drop-switch\" href=\"#\">Philadelphia 76ers</a>";
+var t2_clip = "<a id=\"t2-clip\" class=\"dropdown-item drop-switch\" href=\"#\">Los Angeles Clippers</a>";
+var t2_blaz = "<a id=\"t2-blaz\" class=\"dropdown-item drop-switch\" href=\"#\">Portland Trail Blazers</a>";
+var t2_thun = "<a id=\"t2-thun\" class=\"dropdown-item drop-switch\" href=\"#\">Oklahoma City Thunder</a>";
+var t2_rap = "<a id=\"t2-rap\" class=\"dropdown-item drop-switch\" href=\"#\">Toronto Raptors</a>";
+var t2_kings = "<a id=\"t2-kings\" class=\"dropdown-item drop-switch\" href=\"#\">Sacramento Kings</a>";
+var t2_wiz = "<a id=\"t2-wiz\" class=\"dropdown-item drop-switch\" href=\"#\">Washington Wizards</a>";
+var t2_rock = "<a id=\"t2-rock\" class=\"dropdown-item drop-switch\" href=\"#\">Houston Rockets</a>";
+var t2_hawks = "<a id=\"t2-hawks\" class=\"dropdown-item drop-switch\" href=\"#\">Atlanta Hawks</a>";
+var t2_tim = "<a id=\"t2-tim\" class=\"dropdown-item drop-switch\" href=\"#\">Minnesota Timberwolves</a>";
+var t2_celt = "<a id=\"t2-celt\" class=\"dropdown-item drop-switch\" href=\"#\">Boston Celtics</a>";
+var t2_bnets = "<a id=\"t2-bnets\" class=\"dropdown-item drop-switch\" href=\"#\">Brooklyn Nets</a>";
+var t2_lake = "<a id=\"t2-lake\" class=\"dropdown-item drop-switch\" href=\"#\">Los Angeles Lakers</a>";
+var t2_jazz = "<a id=\"t2-jazz\" class=\"dropdown-item drop-switch\" href=\"#\">Utah Jazz</a>";
+var t2_spurs = "<a id=\"t2-spurs\" class=\"dropdown-item drop-switch\" href=\"#\">San Antonio Spurs</a>";
+var t2_chhorn = "<a id=\"t2-chhorn\" class=\"dropdown-item drop-switch\" href=\"#\">Charlotte Hornets</a>";
+var t2_nugg = "<a id=\"t2-nugg\" class=\"dropdown-item drop-switch\" href=\"#\">Denver Nuggets</a>";
+var t2_mavs = "<a id=\"t2-mavs\" class=\"dropdown-item drop-switch\" href=\"#\">Dallas Mavericks</a>";
+var t2_pacer = "<a id=\"t2-pacer\" class=\"dropdown-item drop-switch\" href=\"#\">Indiana Pacers</a>";
+var t2_suns = "<a id=\"t2-suns\" class=\"dropdown-item drop-switch\" href=\"#\">Phoenix Suns</a>";
+var t2_magic = "<a id=\"t2-magic\" class=\"dropdown-item drop-switch\" href=\"#\">Orlando Magic</a>";
+var t2_pist = "<a id=\"t2-pist\" class=\"dropdown-item drop-switch\" href=\"#\">Detroit Pistons</a>";
+var t2_heat = "<a id=\"t2-heat\" class=\"dropdown-item drop-switch\" href=\"#\">Miami Heat</a>";
+var t2_bulls = "<a id=\"t2-bulls\" class=\"dropdown-item drop-switch\" href=\"#\">Chicago Bulls</a>";
+var t2_knicks = "<a id=\"t2-knicks\" class=\"dropdown-item drop-switch\" href=\"#\">New York Knicks</a>";
+var t2_cavs = "<a id=\"t2-cavs\" class=\"dropdown-item drop-switch\" href=\"#\">Cleveland Cavaliers</a>";
+var t2_grizz = "<a id=\"t2-grizz\" class=\"dropdown-item drop-switch\" href=\"#\">Memphis Grizzlies</a>";
+var t2_avg = "<a id=\"t2-avg\" class=\"dropdown-item drop-switch\" href=\"#\">League Average</a>";
+var t2_bob = "<a id=\"t2-bob\" class=\"dropdown-item drop-switch\" href=\"#\">Charlotte Bobcats</a>";
+var t2_nohorn = "<a id=\"t2-nohorn\" class=\"dropdown-item drop-switch\" href=\"#\">New Orleans Hornets</a>";
+var t2_njnets = "<a id=\"t2-njnets\" class=\"dropdown-item drop-switch\" href=\"#\">New Jersey Nets</a>";
+var t2_sonic = "<a id=\"t2-sonic\" class=\"dropdown-item drop-switch\" href=\"#\">Seattle SuperSonics</a>";
+var t2_van = "<a id=\"t2-van\" class=\"dropdown-item drop-switch\" href=\"#\">Vancouver Grizzlies</a>";
