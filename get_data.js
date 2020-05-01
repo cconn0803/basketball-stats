@@ -1,23 +1,23 @@
 var d1 ={
-  "Team": "Milwaukee Bucks",
-  "Season": "2018-2019",
-  "FG": "0.476",
-  "threeP": "0.353",
-  "twoP": "0.565",
-  "FT": "0.773",
-  "PTS": "118.1"
+	"Team": "Milwaukee Bucks",
+	"Season": "2018-2019",
+	"FG": "0.476",
+	"threeP": "0.353",
+	"twoP": "0.565",
+	"FT": "0.773",
+	"PTS": "118.1"
 };
 var d2 = {
-  "Team": "Golden State Warriors",
-  "Season": "2018-2019",
-  "FG": "0.491",
-  "threeP": "0.385",
-  "twoP": "0.557",
-  "FT": "0.801",
-  "PTS": "117.7"
+	"Team": "Golden State Warriors",
+	"Season": "2018-2019",
+	"FG": "0.491",
+	"threeP": "0.385",
+	"twoP": "0.557",
+	"FT": "0.801",
+	"PTS": "117.7"
 };
 window.addEventListener('load', function () {
-  displayData(d1, d2);
+	displayData(d1, d2);
 })
 
 
